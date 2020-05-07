@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace wfaOOGabrielBertti
+{
+    class Conta_Especial: Conta
+    {
+      
+
+        public override void Sacar(double valor)
+        {
+            if (this.Conta_Saldo + this.Conta_Limite< valor)
+                throw new System.ArgumentException("Saldo indisponivel");
+            else
+            {
+                double saldo_dif = this.Conta_Saldo + this.Conta_Limite;
+                if (this.Conta_Saldo > valor)
+                    this.Conta_Saldo -= valor;
+                else {
+                    saldo_dif = valor - this.Conta_Saldo;
+                    this.Conta_Saldo = 0;
+                    this.Conta_Limite -= saldo_dif;
+                }
+                    
+
+
+            }
+
+        }
+      
+    }
+}
